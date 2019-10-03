@@ -1,6 +1,6 @@
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{lab_report}[2019/09/30 Lab report]
+\ProvidesClass{lab_report}[2019/09/30 1.0 Lab report]
 
 \LoadClass[14pt, a4paper, oneside, titlepage ]{extarticle}
 \linespread{1.25}
@@ -38,13 +38,13 @@
 		\begin{center}
 			ФГБОУ ВПО Московский Государственный Технический Университет имени Баумана
 			\bigbreak
-			Факультет ИУ "Информатика и системы управления"\\
-			Кафедра ИУ-3 "Информационные системы и телекоммуникации"
+			Факультет ИУ ``Информатика и системы управления''\\
+			Кафедра ИУ-3 ``Информационные системы и телекоммуникации''
 			\vfill
 			{\Huge\textbf{Отчёт}\\}
 			по лабораторной работе №\@labNumber\\
-			по курсу "\@course"\\
-			"\@title"\\
+			по курсу ``\@course''\\
+			``\@title''\\
 			Вариант \@variant\\
 		\end{center}
 		\vfill
@@ -62,6 +62,7 @@
 
 \RequirePackage{hyperref}
 \RequirePackage{amsthm}
+\RequirePackage[all]{hypcap}
 
 % Task environment
 \newcounter{taskcounter}
@@ -96,21 +97,20 @@
 }
 
 \RequirePackage{graphicx}
+\RequirePackage{float}
 \RequirePackage{calc}
 \graphicspath{ {./images/} }
 
 \newlength{\imgwidth}
 \newcommand\scalegraphics[1]{%   
     \settowidth{\imgwidth}{\includegraphics{#1}}%
-    \setlength{\imgwidth}{\minof{\imgwidth}{\textwidth}}%
-    \includegraphics[width=\imgwidth]{#1}%
+	\setlength{\imgwidth}{\minof{\imgwidth}{\textwidth}}%
+	\setlength{\imgwidth}{0.8\imgwidth}%
+	\includegraphics[width=\imgwidth]{#1}%
 }
 
-\newcommand{\smartref}[2][Ссылка]{
-	\hyperref[#2]{#1~\ref*{#2}}
-}
 \newcommand{\insertfigure}[3][:empty]{
-	\begin{figure}[h]
+	\begin{figure}[H]
 		\centering
 		\scalegraphics{#2}
 		\caption{#3}
@@ -118,3 +118,6 @@
 	\end{figure}
 }
 
+\newcommand{\smartref}[2][Ссылка]{
+	\hyperref[#2]{#1~\ref*{#2}}
+}
