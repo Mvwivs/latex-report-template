@@ -1,0 +1,52 @@
+
+\documentclass{lab_report}
+
+\begin{document}
+
+\course{Распределённые информационные системы}
+\title{Многопроцессорные вычислительные системы и параллельные вычисления}
+\labNumber{1}
+\variant{11}
+\author{Мазов В. И.}
+\group{11М}
+\teacher{Локтев Д. А.}
+
+\maketitle
+
+\tableofcontents
+
+\section{Цель работы}
+Основной целью лабораторной работы является...
+
+
+\section{Задание}
+\begin{task}[Улучшение агента ReflexAgent]
+	Улучшите метод ReflexAgent...
+\end{task}
+
+\begin{task}[Улучшение алгоритма]
+	Вам необходимо написать конкурентоспособного поискового агента...
+\end{task}
+
+\section{Выполнение работы}
+
+\taskDoneSection
+Используем метод потенциалов для оценки состояния. \smartref[Листинг]{lis:eval} содержит исходный код функции оценки, реализующей приведённый алгоритм.
+
+\begin{lstlisting}[language={Python}, label={lis:eval}, caption={Функция оценки}, captionpos=t]
+def evaluationFunction(self, currentGameState, action): 
+	successorGameState = currentGameState.generatePacmanSuccessor(action)
+	newPos = successorGameState.getPacmanPosition()
+\end{lstlisting}
+
+\smartref[Рисунок]{fig:interface} содержит результат запуска программы, а \smartref[листинг]{lis:testReflex} содержит результат проведения тестирования и оценки программы, выводимый в консоль. На основании приведённого отчёта можно сделать вывод о правильности работы программы.
+
+\insertfigure[fig:interface]{pacman}{Работа программы}
+
+\taskDoneSection
+...
+
+\section{Выводы}
+В результате проделанной работы было ...
+
+\end{document}
