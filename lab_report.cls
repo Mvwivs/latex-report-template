@@ -1,6 +1,6 @@
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{lab_report}[2019/09/30 1.1 Lab report]
+\ProvidesClass{lab_report}[2019/09/30 1.2 Lab report]
 
 \LoadClass[14pt, a4paper, oneside, titlepage ]{extarticle}
 \linespread{1.25}
@@ -92,16 +92,23 @@
 
 % Custom listing style
 \RequirePackage{listings}
-\lstset{
-	basicstyle=\linespread{0.5}\ttfamily\bfseries,
-	breaklines=true,
-	literate={\	}{{\ }}2 %remove tabs and place spaces
+\lstnewenvironment{listing}[3]{
+    \lstset{
+		basicstyle=\linespread{0.5}\ttfamily\bfseries,
+		breaklines=true,
+		literate={\	}{{\ }}2, %remove tabs and place spaces
+		captionpos=t,
+		language={#1},
+		caption={#2},
+		label={lis:#3}
+	}
+}{
 }
 
 \RequirePackage{graphicx}
 \RequirePackage{float}
 \RequirePackage{calc}
-\graphicspath{ {./images/} }
+\graphicspath{ {./images/} } % image folder
 
 % Scale big images, leave small untouched
 \newlength{\imgwidth}

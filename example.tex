@@ -33,11 +33,12 @@
 \taskDoneSection
 Используем метод потенциалов для оценки состояния. \smartref[Листинг]{lis:eval} содержит исходный код функции оценки, реализующей приведённый алгоритм.
 
-\begin{lstlisting}[language={Python}, label={lis:eval}, caption={Функция оценки}, captionpos=t]
+\begin{listing}{Python}{Функция оценки}{eval}
 def evaluationFunction(self, currentGameState, action): 
 	successorGameState = currentGameState.generatePacmanSuccessor(action)
 	newPos = successorGameState.getPacmanPosition()
-\end{lstlisting}
+\end{listing}
+
 
 \smartref[Рисунок]{fig:pacman} содержит результат запуска программы...
 
