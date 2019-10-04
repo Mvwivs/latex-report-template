@@ -1,6 +1,6 @@
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{lab_report}[2019/09/30 1.0 Lab report]
+\ProvidesClass{lab_report}[2019/09/30 1.1 Lab report]
 
 \LoadClass[14pt, a4paper, oneside, titlepage ]{extarticle}
 \linespread{1.25}
@@ -9,10 +9,11 @@
 \RequirePackage[T1,T2A]{fontenc}
 \RequirePackage[russian]{babel}
 
+% Set margins
 \RequirePackage[left=2cm, right=1.5cm, top=2cm, bottom=3cm]{geometry}
 
-\RequirePackage{fancyhdr}
 % Move page numbering to RHC
+\RequirePackage{fancyhdr}
 \fancypagestyle{plain}{ %
 	\fancyhf{} % remove everything
 	\renewcommand{\headrulewidth}{0pt} % remove lines as well
@@ -23,7 +24,7 @@
 \setlength{\headheight}{2cm}
 
 \RequirePackage{titlesec}
-\newcommand{\sectionbreak}{\clearpage}
+\newcommand{\sectionbreak}{\clearpage} % Title on separate page
 
 % Title page arguments
 \newcommand\labNumber[1]{\def\@labNumber{#1}}
@@ -62,7 +63,7 @@
 
 \RequirePackage{hyperref}
 \RequirePackage{amsthm}
-\RequirePackage[all]{hypcap}
+\RequirePackage[all]{hypcap} % Set links to top of images
 
 % Task environment
 \newcounter{taskcounter}
@@ -89,6 +90,7 @@
 \hyphenpenalty=10000
 \hbadness=10000
 
+% Custom listing style
 \RequirePackage{listings}
 \lstset{
 	basicstyle=\linespread{0.5}\ttfamily\bfseries,
@@ -101,6 +103,7 @@
 \RequirePackage{calc}
 \graphicspath{ {./images/} }
 
+% Scale big images, leave small untouched
 \newlength{\imgwidth}
 \newcommand\scalegraphics[1]{%   
     \settowidth{\imgwidth}{\includegraphics{#1}}%
@@ -109,15 +112,18 @@
 	\includegraphics[width=\imgwidth]{#1}%
 }
 
-\newcommand{\insertfigure}[3][:empty]{
+% Custom image insertion
+% Autogenerates labels
+\newcommand{\insertfigure}[2]{
 	\begin{figure}[H]
 		\centering
-		\scalegraphics{#2}
-		\caption{#3}
-		\label{#1}
+		\scalegraphics{#1}
+		\caption{#2}
+		\label{fig:#1}
 	\end{figure}
 }
 
+% Convinient reference synatx
 \newcommand{\smartref}[2][Ссылка]{
-	\hyperref[#2]{#1~\ref*{#2}}
+	\hyperref[#2]{{#1~\ref*{#2}}}
 }
