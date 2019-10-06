@@ -6,7 +6,7 @@
 \linespread{1.25}
 
 \RequirePackage[utf8]{inputenc}
-\RequirePackage[T1,T2A]{fontenc}
+\RequirePackage[T2A]{fontenc}
 \RequirePackage[russian]{babel}
 
 % Set margins
@@ -91,10 +91,11 @@
 \hbadness=10000
 
 % Custom listing style
+\RequirePackage{inconsolata}
 \RequirePackage{listings}
 \lstnewenvironment{listing}[3]{
     \lstset{
-		basicstyle=\linespread{0.5}\ttfamily\bfseries,
+		basicstyle=\linespread{0.5}\ttfamily,
 		breaklines=true,
 		literate={\	}{{\ }}2, %remove tabs and place spaces
 		captionpos=t,
@@ -102,7 +103,9 @@
 		caption={#2},
 		label={lis:#3}
 	}
+	\fontencoding{OT1}\selectfont
 }{
+	\fontencoding{T2A}\selectfont
 }
 
 \RequirePackage{graphicx}
