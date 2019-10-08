@@ -1,6 +1,6 @@
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{lab_report}[2019/09/30 1.2 Lab report]
+\ProvidesClass{lab_report}[2019/09/30 1.3 Lab report]
 
 \LoadClass[14pt, a4paper, oneside, titlepage ]{extarticle}
 \linespread{1.25}
@@ -27,14 +27,14 @@
 \newcommand{\sectionbreak}{\clearpage} % Title on separate page
 
 % Title page arguments
-\newcommand\labNumber[1]{\def\@labNumber{#1}}
-\newcommand\course[1]{\def\@course{#1}}
-\newcommand\variant[1]{\def\@variant{#1}}
-\newcommand\group[1]{\def\@group{#1}}
-\newcommand\teacher[1]{\def\@teacher{#1}}
+\newcommand{\labNumber}[1]{\def\@labNumber{#1}}
+\newcommand{\course}[1]{\def\@course{#1}}
+\newcommand{\variant}[1]{\def\@variant{#1}}
+\newcommand{\group}[1]{\def\@group{#1}}
+\newcommand{\teacher}[1]{\def\@teacher{#1}}
 
 % Title page format
-\renewcommand\maketitle{
+\renewcommand{\maketitle}{
 	\begin{titlepage}
 		\begin{center}
 			ФГБОУ ВПО Московский Государственный Технический Университет имени Баумана
@@ -91,11 +91,14 @@
 \hbadness=10000
 
 % Custom listing style
+\RequirePackage{caption}
 \RequirePackage{inconsolata}
 \RequirePackage{listings}
+
+\captionsetup[lstlisting]{labelsep=period}
 \lstnewenvironment{listing}[3]{
     \lstset{
-		basicstyle=\linespread{0.5}\ttfamily,
+		basicstyle=\linespread{0.5}\ttfamily\small,
 		breaklines=true,
 		literate={\	}{{\ }}2, %remove tabs and place spaces
 		captionpos=t,
@@ -111,11 +114,13 @@
 \RequirePackage{graphicx}
 \RequirePackage{float}
 \RequirePackage{calc}
+
 \graphicspath{ {./images/} } % image folder
+\captionsetup[figure]{name={Рисунок}, labelsep=period}
 
 % Scale big images, leave small untouched
 \newlength{\imgwidth}
-\newcommand\scalegraphics[1]{%   
+\newcommand{\scalegraphics}[1]{%   
     \settowidth{\imgwidth}{\includegraphics{#1}}%
 	\setlength{\imgwidth}{\minof{\imgwidth}{\textwidth}}%
 	\setlength{\imgwidth}{0.8\imgwidth}%

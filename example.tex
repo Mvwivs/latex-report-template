@@ -33,15 +33,19 @@
 \taskDoneSection
 Используем метод потенциалов для оценки состояния. \smartref[Листинг]{lis:eval} содержит исходный код функции оценки, реализующей приведённый алгоритм.
 
+% \begin{listing}{<language>}{<Caption>}{<label>} 
+% "lis:" is added to label automatically
 \begin{listing}{Python}{Функция оценки}{eval}
 def evaluationFunction(self, currentGameState, action): 
 	successorGameState = currentGameState.generatePacmanSuccessor(action)
 	newPos = successorGameState.getPacmanPosition()
 \end{listing}
 
-
+% \smartref[<Caption>]{<label>}
 \smartref[Рисунок]{fig:pacman} содержит результат запуска программы...
 
+% \insertfigure{<filename>}{<Caption>}
+% label "fig:<filename>" is set automatically
 \insertfigure{pacman}{Работа программы}
 
 \taskDoneSection
