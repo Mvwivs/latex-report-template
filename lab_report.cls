@@ -1,6 +1,6 @@
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{lab_report}[2019/09/30 1.3 Lab report]
+\ProvidesClass{lab_report}[2019/09/30 1.4 Lab report]
 
 \LoadClass[14pt, a4paper, oneside, titlepage ]{extarticle}
 \linespread{1.25}
@@ -95,7 +95,7 @@
 \RequirePackage{inconsolata}
 \RequirePackage{listings}
 
-\captionsetup[lstlisting]{labelsep=period}
+\captionsetup[lstlisting]{labelsep=period, justification=raggedright, singlelinecheck=false}
 \lstnewenvironment{listing}[3]{
     \lstset{
 		basicstyle=\linespread{0.5}\ttfamily\small,
@@ -138,7 +138,22 @@
 	\end{figure}
 }
 
-% Convinient reference synatx
+% Convenient reference syntax
 \newcommand{\smartref}[2][Ссылка]{
 	\hyperref[#2]{{#1~\ref*{#2}}}
+}
+
+\RequirePackage{multirow}
+\RequirePackage{longtable}
+
+\captionsetup[table]{labelsep=period, justification=raggedleft, singlelinecheck=false}
+\newenvironment{shorttable}[3]{
+	\begin{table}[H]
+		\caption{#2}
+		\label{tab:#3}
+		\centering
+		\begin{tabular}{#1}
+}{
+		\end{tabular}
+	\end{table}
 }
