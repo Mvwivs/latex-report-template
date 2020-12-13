@@ -123,7 +123,7 @@
 \newcommand{\scalegraphics}[1]{%   
     \settowidth{\imgwidth}{\includegraphics{#1}}%
 	\setlength{\imgwidth}{\minof{\imgwidth}{\textwidth}}%
-	\setlength{\imgwidth}{0.8\imgwidth}%
+	% \setlength{\imgwidth}{0.8\imgwidth}%
 	\includegraphics[width=\imgwidth]{#1}%
 }
 
