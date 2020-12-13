@@ -140,7 +140,7 @@
 
 % Convenient reference syntax
 \newcommand{\smartref}[2][Ссылка]{
-	\hyperref[#2]{{#1~\ref*{#2}}}
+	\hyperref[#2]{{#1~\ref*{#2}}}%
 }
 
 \RequirePackage{multirow}
